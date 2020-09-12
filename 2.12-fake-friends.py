@@ -25,5 +25,5 @@ avg_by_age_df = fake_friends_df\
     .orderBy('age')\
     .cache()
 
-avg_by_age_df.show(100)
+avg_by_age_df.show(10)
 
