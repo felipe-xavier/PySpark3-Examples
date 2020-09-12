@@ -1,7 +1,8 @@
 # PySpark3-Examples
-Code examples from the Udemy "Taming Big Data with Apache Spark and Python - Hands On!" course by Frank Kane updated to PySpark3 using Dataframes.
+Code examples from the Udemy ["Taming Big Data with Apache Spark and Python - Hands On!"](https://www.udemy.com/course/taming-big-data-with-apache-spark-hands-on/)
+course by Frank Kane updated to PySpark3 using Dataframes.
 
-The course was first given using Spark2, later professor 
+His course was first given using Spark2, fortunately professor 
 Kane added some lectures about Spark3 and Dataframes, 
 but the code examples still use RDDs. So the goal here 
 is to provide updated examples using Dataframes to help you advance your studies.
