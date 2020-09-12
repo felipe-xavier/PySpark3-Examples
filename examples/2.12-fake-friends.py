@@ -12,7 +12,7 @@ schema = StructType([
     StructField("#friends", IntegerType(), True)
 ])
 
-fake_friends_df = spark.read.csv('/data/courses/SparkCourse/fakefriends.csv',
+fake_friends_df = spark.read.csv('examples/datasets/fakefriends.csv',
                                  schema=schema)
 
 fake_friends_df.describe().show()

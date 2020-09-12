@@ -13,7 +13,7 @@ schema = StructType([
     StructField("value", FloatType(), True)
 ])
 
-pcds_df = spark.read.csv('/data/courses/SparkCourse/1800.csv', schema=schema)
+pcds_df = spark.read.csv('examples/datasets/1800.csv', schema=schema)
 
 pcds_df.describe().show()
 pcds_df.printSchema()
