@@ -24,6 +24,12 @@ min_temps_df.show(5)
 
 # Check how many stations we have using distinct().
 min_temps_df.select('stn_id').distinct().show()
+# +-----------+
+# |     stn_id|
+# +-----------+
+# |ITE00100554|
+# |EZE00100082|
+# +-----------+
 
 min_temps_stns_df = min_temps_df\
     .groupby('stn_id')\
@@ -33,6 +39,12 @@ min_temps_stns_df = min_temps_df\
 
 min_temps_stns_df.show()
 
+# +-----------+----------+
+# |     stn_id|min(value)|
+# +-----------+----------+
+# |ITE00100554|    -148.0|
+# |EZE00100082|    -135.0|
+# +-----------+----------+
 
 
 ## USING RDD from the Course:
