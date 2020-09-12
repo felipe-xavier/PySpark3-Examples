@@ -7,7 +7,7 @@ Kane added some lectures about Spark3 and Dataframes,
 but the code examples still use RDDs. So the goal here 
 is to provide updated examples using Dataframes to help you advance your studies.
 
-All the data files are given in the lectures and are stored locally at /data/courses/SparkCourse/
+All the data files are given in the lectures and are stored locally at examples/datasets.
 
 Once you install Java and PySpark and set the environment variables you will be good running these codes.
 
