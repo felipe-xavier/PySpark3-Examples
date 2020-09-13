@@ -37,14 +37,22 @@ min_temps_stns_df = min_temps_df\
     .orderBy('min(value)')\
     .cache()
 
+def calc_F(value):
+    return value * 0.1 * (9.0/5.0) + 32
+
+udf_calc_F = F.udf(calc_F, FloatType())
+
+min_temps_stns_df = min_temps_stns_df.withColumn('value_F',
+                                                 udf_calc_F('min(value)'))
+
 min_temps_stns_df.show()
 
-# +-----------+----------+
-# |     stn_id|min(value)|
-# +-----------+----------+
-# |ITE00100554|    -148.0|
-# |EZE00100082|    -135.0|
-# +-----------+----------+
+# +-----------+----------+-------+
+# |     stn_id|min(value)|value_F|
+# +-----------+----------+-------+
+# |ITE00100554|    -148.0|   5.36|
+# |EZE00100082|    -135.0|    7.7|
+# +-----------+----------+-------+
 
 
 ## USING RDD from the Course:
