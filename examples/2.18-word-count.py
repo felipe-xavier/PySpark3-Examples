@@ -4,7 +4,7 @@
 import re
 from pyspark.sql import functions as F
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType, StructField, StringType, ArrayType
+from pyspark.sql.types import StructType, StructField, StringType, ArrayType, IntegerType
 
 
 spark = SparkSession.builder.appName('WoldCounter').getOrCreate()
@@ -23,9 +23,9 @@ def counter_words(line:str) -> list:
 udf_spliter = F.udf(counter_words, ArrayType(StringType()))
 
 df = df.withColumn('words', udf_spliter('line'))
-print(df)
 df.show(5)
 
+# Put each word from the list in a new row, so the groupBy groups per word.
 df = df.withColumn('word', F.explode(df.words)) \
     .groupBy('word') \
     .count() \
@@ -41,6 +41,17 @@ df.show(5)
 # | the| 1292|
 # |   a| 1191|
 # +----+-----+
+
+def letter_counter(word: str) -> int:
+    return len(word)
+
+letter_counter_udf = F.udf(letter_counter, IntegerType())
+
+df = df.withColumn('letter_count', letter_counter_udf('word'))
+df.show(5)
+
+df_one_letter = df[df.letter_count == 1]
+df_one_letter.show()
 
 total_words = df.groupby().sum()
 total_words.show(5)
