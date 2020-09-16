@@ -9,7 +9,7 @@ schema = StructType([
     StructField("rating", IntegerType(), True),
     StructField("timestamp", IntegerType(), True)
 ])
-ratings_df = spark.read.csv('examples/datasets/u.data',
+ratings_df = spark.read.csv('datasets/u.data',
                             sep='\t',
                             schema=schema)
 

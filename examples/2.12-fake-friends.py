@@ -3,7 +3,7 @@ from pyspark.sql import functions as F
 from pyspark.sql.types import StructType, StructField, IntegerType, StringType
 
 
-spark = SparkSession.builder.appName('RatingsHistogram').getOrCreate()
+spark = SparkSession.builder.appName('FakeFriends').getOrCreate()
 
 schema = StructType([
     StructField("id", IntegerType(), True),
@@ -12,7 +12,7 @@ schema = StructType([
     StructField("#friends", IntegerType(), True)
 ])
 
-fake_friends_df = spark.read.csv('examples/datasets/fakefriends.csv',
+fake_friends_df = spark.read.csv('datasets/fakefriends.csv',
                                  schema=schema)
 
 fake_friends_df.describe().show()
