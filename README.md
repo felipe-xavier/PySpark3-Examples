@@ -3,9 +3,8 @@ Code examples from the Udemy ["Taming Big Data with Apache Spark and Python - Ha
 course by Frank Kane updated to PySpark3 using Dataframes.
 
 His course was first given using Spark2, fortunately professor 
-Kane added some lectures about Spark3 and Dataframes, 
-but the code examples still use RDDs. So the goal here 
-is to provide updated examples using Dataframes to help you advance your studies.
+Kane added some lectures about Spark3 and Dataframes. You will see here 
+updated examples using Dataframes to help you advance your studies.
 
 All the data files are given in the lectures and are stored locally at examples/datasets.
 
