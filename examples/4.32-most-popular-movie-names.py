@@ -58,7 +58,7 @@ ratings_df.show(5)
 # +--------+-----+
 
 def lookup_name(movie_id):
-    return name_dict.value[movie_id]
+    return name_dict.value.get(movie_id)
 
 lookup_name_udf = F.udf(lookup_name, StringType())
 
